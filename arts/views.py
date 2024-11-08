@@ -7,7 +7,7 @@ class ArtistView(ListView):
     template_name = 'index.html'
     context_object_name = 'arts'
     def get_queryset(self):        
-        abo = self.request.user.id  # Access request via self
+        abo = self.request.user.id 
         return Art.objects.filter(owner=abo)
     
 class DetailsArtView(DetailView):
