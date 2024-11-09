@@ -1,7 +1,10 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from django.core.exceptions import ValidationError
 from users.models import User
-
+def Positive(value):
+    if  value<=0:
+        raise ValidationError("Prix doit etre strictement positive")
 class Art(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='arts') 
     title = models.CharField(max_length=100,unique=True)

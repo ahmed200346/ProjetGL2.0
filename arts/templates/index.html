@@ -132,6 +132,9 @@
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </form>
+                                <a href="{% url 'update_art' art.id %}" class="details-link update-link">
+                                  <i class="bi bi-pencil"></i>
+                                </a>
                         <a href="{% url 'details_arts' art.id%}" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         <h1>{{ art.title }}</h1>
                     </div>

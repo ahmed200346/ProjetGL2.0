@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
+    {% load static %}
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 </head>
 <body>
     <h2>Connexion</h2>
@@ -11,7 +14,10 @@
         {{ form.as_p }}
         <!-- Bouton de connexion -->
         <button type="submit" class="btn btn-primary">Se connecter</button>
-      </form>
+    </form>
     <p>Pas de compte ? <a href="{% url 'signup' %}">Inscrivez-vous ici</a></p>
+
+    <!-- Lien vers le fichier JS -->
+    <script src="{% static 'base.js' %}"></script>
 </body>
 </html>
