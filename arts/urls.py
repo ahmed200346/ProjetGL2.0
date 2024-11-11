@@ -6,4 +6,5 @@ urlpatterns = [
     path('delete/<int:pk>', DeleteArtView.as_view(), name='delete_art'),  
     path('detail/<int:pk>', DetailsArtView.as_view(), name='details_arts'),   
     path('update/<int:pk>', UpdateArtView.as_view(), name='update_art'),
+     path('create/', CreateArtView.as_view(), name='create_art'),
 ]

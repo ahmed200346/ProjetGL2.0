@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView ,DeleteView,DetailView,UpdateView
+from django.views.generic import ListView ,DeleteView,DetailView,UpdateView,CreateView
 from .models import *
 from .forms import *
 class ArtistView(ListView):
@@ -25,5 +25,12 @@ class UpdateArtView(UpdateView):
     form_class=UpdateArt
     context_object_name = 'art'
 
+    def get_success_url(self):
+        return reverse_lazy("list_arts")
+class CreateArtView(CreateView):
+    model = Art
+    template_name = "art_create.html" 
+    form_class=AddArt
+    context_object_name = 'art'
     def get_success_url(self):
         return reverse_lazy("list_arts")

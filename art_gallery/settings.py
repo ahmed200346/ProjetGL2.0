@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'arts',
     'forum',
     'users',
-    'vente'
+    'vente',
+    'administrateur',  # Correction ici
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
