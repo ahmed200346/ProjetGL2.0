@@ -14,11 +14,11 @@ from users.urls import*
 class Register(CreateView): 
     model=User
     form_class= RegisterForm
-    template_name = "users/signup.html"
+    template_name = "signup.html"
     success_url = reverse_lazy('login')
 
 class Login(LoginView):
-    template_name="users/login.html"
+    template_name="login.html"
     
     def get_success_url(self):        
         return reverse('home')
@@ -27,13 +27,13 @@ class Login(LoginView):
 class UserDetails(LoginRequiredMixin, DetailView):
     model = User
 
-    template_name = "users/details.html"
+    template_name = "details.html"
 
     context_object_name = "user_details"
 
 class HomeView(LoginRequiredMixin,TemplateView):
 
-    template_name = "users/home.html"
+    template_name = "home.html"
 
 class CustomLogoutView(LogoutView):
 
@@ -42,7 +42,7 @@ class CustomLogoutView(LogoutView):
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
     form_class = CustomUserChangeForm
-    template_name = 'users/update.html'
+    template_name = 'update.html'
     success_url = reverse_lazy('user_details')  
 
     def get_object(self, queryset=None):
@@ -56,7 +56,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     
 class DeleteUser(LoginRequiredMixin, DeleteView):
     model = User
-    template_name = 'users/delete.html'  
+    template_name = 'delete.html'  
     context_object_name = 'user'  
     success_url = reverse_lazy('login')
     def get_object(self, queryset=None):
