@@ -32,5 +32,8 @@ class CreateArtView(CreateView):
     template_name = "art_create.html" 
     form_class=AddArt
     context_object_name = 'art'
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
     def get_success_url(self):
         return reverse_lazy("list_arts")
